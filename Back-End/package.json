@@ -1,0 +1,11 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "public",
+    "url": "https://github.com/ErinF10/Who-Wants-To-Be-A-Millionaire-/tree/main/Back-End"
+  },
+  "main": "src/index.js",
+  "license": "ISC"
+}
