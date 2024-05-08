@@ -1,0 +1,62 @@
+body {
+  background-color: aliceblue;
+}
+
+.panel {
+  margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: navy;
+}
+
+.question {
+  text-align: center;
+  font-size: 30px;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.option {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  margin: 10px auto 20px; /* Adjusted margin */
+}
+
+.option label {
+  margin-left: 5px; /* Add margin to space out the text */
+}
+
+.option-container {
+  display: flex;
+  align-items: center;
+}
+
+.option input[type="radio"] {
+  margin-right: 5px; /* Add margin to space out the bullet points */
+}
+
+button {
+  margin-right: 75px;
+  margin-top: 8%;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #4f98c2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #4f98c2;
+  background-color: white;
+  border: 1 px solid #4f98c2;
+}
+
+#point {
+  font-size: 30px;
+  color: darkslateblue;
+}
