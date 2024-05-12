@@ -1,0 +1,142 @@
+/* Reset!!
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+    /* background-color: #d3ddde;     */
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 130%;
+    width: 10000px; 
+    margin-top: 1cm;
+    margin-left: 1cm;
+    color: #494949;
+    line-height: 130%;
+}
+
+header {
+    margin-bottom: .2%;
+    padding: .15%;
+    background-color: #daf0db;
+}
+
+#welcome {
+    padding-top: 35%;
+    font-size: 120%;
+    /* color: red; */
+}
+
+h1 {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 310%;
+    padding-top: .13%;
+    padding-bottom: .2%;
+}
+
+ol {
+    list-style:cdecimal;
+    padding-left: .4%;
+    margin-bottom: .1%;
+}
+
+button {
+    background-color: rgb(243, 251, 244);
+    font-family: 'Lexend Deca', sans-serif;
+    text-decoration: none;
+    text-decoration-color:  #8fb68e;
+    width: 150px; 
+    height: 70px;
+    font-size:xx-large;
+    margin: 1 auto;
+    margin-right: .05%;
+    border-radius: 5px;
+    border-width: 1.3px;
+    border-style:solid;
+    border-color:  #8fb68e;
+    /* margin-left: 3mm; */
+}
+
+a {
+    text-decoration: none;
+    color: #494949;
+}
+
+div {
+    font-size: large;
+    border-style:solid;
+    border-radius: 5px;
+    margin-top: 2cm;
+    margin-left: 3mm;
+}
+
+#textbox1 {
+    /* border-width: 100px;  */
+    /* border-height: 100px; */
+    /* background-color: #c4ddc4; */
+    border-style:solid;
+    border-radius: 5px;
+    margin-top: 2cm;
+    margin-left: 3mm;
+
+}
+
+nav a {
+    font-size: 80%;
+    text-decoration: underline;
+}
+
+#junk {
+    padding-right: 90%;
+}
+
+footer {
+    margin-top: .15%;
+    margin-bottom: .2%;
+    padding: .15%;
+    background-color: #daf0db;
+    /* position: absolute;  */
+    bottom: 0; 
+    left: 0; 
+    line-height: 130%;
+}
+
+small {
+    padding-top: 100%;
+    font-size: 65%;
+}
