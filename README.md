@@ -1,5 +1,5 @@
-# Who-Wants-To-Be-A-Millionaire-
-Repository for CISC 3140 WWTBM game
+# CS Trivia Game
+Repository for CISC 3140 trivia game
 
 
 
