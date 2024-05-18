@@ -1,6 +1,7 @@
 let Questions = [];
 let currQuestion = 0;
 let score = 0;
+const questionLimit = 15;
 
 const ques = document.getElementById("q");
 const opt = document.getElementById("op");
@@ -10,7 +11,7 @@ const scoreDisplay = document.getElementById("score");
 async function fetchQuestions() {
     try {
         // Fetch questions from the API
-        const response = await fetch('https://opentdb.com/api.php?amount=10&category=18');
+        const response = await fetch(`https://opentdb.com/api.php?amount=${questionLimit}&category=18`);
 
         // Check if the response is successful
         if (!response.ok) {
@@ -38,19 +39,26 @@ async function fetchQuestions() {
     }
 }
 
+function decodeHtml(html) {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
 
 function loadQuestion() {
     const currentQuestion = Questions[currQuestion];
-    ques.textContent = currentQuestion.question;
+    ques.textContent = `Question ${currQuestion + 1}: ${decodeHtml(currentQuestion.question)}`;
     opt.innerHTML = "";
     const answers = [currentQuestion.correct_answer, ...currentQuestion.incorrect_answers];
+    // Shuffle answers array
+    answers.sort(() => Math.random() - 0.5);
     answers.forEach(answer => {
         const choice = document.createElement("input");
         choice.type = "radio";
         choice.name = "answer";
-        choice.value = answer;
+        choice.value = decodeHtml(answer);  // Decode HTML entities
         const label = document.createElement("label");
-        label.textContent = answer;
+        label.textContent = decodeHtml(answer);  // Decode HTML entities
         const optionContainer = document.createElement("div"); // Create a container for each option
         optionContainer.classList.add("option-container"); // Add class to the container
         optionContainer.appendChild(choice);
@@ -58,7 +66,6 @@ function loadQuestion() {
         opt.appendChild(optionContainer); // Append the container to the options container
     });
 }
-
 
 function checkAns() {
     const selectedAns = document.querySelector('input[name="answer"]:checked');
@@ -73,12 +80,19 @@ function checkAns() {
         alert(`Wrong answer! The correct answer is: ${Questions[currQuestion].correct_answer}`);
     }
     currQuestion++;
-    if (currQuestion < Questions.length) {
+    if (currQuestion < Questions.length && currQuestion < questionLimit) {
         loadQuestion();
     } else {
         displayScore();
     }
 }
 
+function displayScore() {
+    scoreDisplay.textContent = `Your score: ${score} out of ${currQuestion}`;
+}
 
+// Set the button's event listener
+btn.addEventListener('click', checkAns);
+
+// Fetch questions when the page loads
 fetchQuestions();
