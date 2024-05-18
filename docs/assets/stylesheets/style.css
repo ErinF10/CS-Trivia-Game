@@ -49,17 +49,11 @@ table {
 }
 
 body {
-    /* background-color: #d3ddde;     */
-    /* background-image: URL('/Users/erinforrest/Downloads/background.jpg'); */
-    background-image:url('./images/background.jpg');
+    background-image:url('../images/background.jpg');
     padding: 0;
     margin: 0;
     font-family: 'Lexend Deca', sans-serif;
     font-size: 130%;
-    /* width: 10000px;  */
-    /* margin-top: 1cm;
-    margin-left: 1cm; */
-    /* margin: 1cm; */
     color: #494949;
     line-height: 130%;
 }
@@ -73,8 +67,6 @@ hr {
 
 header {
     width: 100%;
-    /* background-color: #daf0db; */
-    /* position: absolute; 
     top: 0;  */
     padding: 1.5%;
 }
@@ -87,9 +79,6 @@ section {
     margin-left: 15%;
     margin-right: 15%;
     line-height: 150%;
-    /* overflow: scroll;
-    overflow-x: scroll;
-    overflow-y: scroll; */
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
@@ -99,7 +88,6 @@ section {
 small#welcome {
     font-size: 120%;
     text-align: left;
-    /* color: red; */
 }
 
 h1 {
