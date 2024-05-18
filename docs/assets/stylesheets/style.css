@@ -44,14 +44,14 @@ table {
     min-height: 100%;
 }
 
-/* #content-wrap {
-    padding-bottom: 
-} */
+#content-wrap {
+    padding-bottom: 20%; 
+}
 
 body {
     /* background-color: #d3ddde;     */
     /* background-image: URL('/Users/erinforrest/Downloads/background.jpg'); */
-    background-image:url('./images/background.jpg');
+    background-image:url('triviabackground.jpg');
     padding: 0;
     margin: 0;
     font-family: 'Lexend Deca', sans-serif;
@@ -86,8 +86,6 @@ section {
     padding: 5%;
     margin-left: 15%;
     margin-right: 15%;
-    margin-top: 0%;
-    margin-bottom:5%;
     line-height: 150%;
     /* overflow: scroll;
     overflow-x: scroll;
@@ -98,17 +96,16 @@ section {
     background-color: white;
 }
 
-
 small#welcome {
-    font-size: 100%;
-    text-align-last: left;
+    font-size: 120%;
+    text-align: left;
     /* color: red; */
 }
 
 h1 {
     font-family: 'Lexend Deca', sans-serif;
     font-size: 350%;
-    padding-top: 1.5%;
+    padding-top: 4.5%;
     padding-bottom: 1.5%;
     margin-bottom: 2%;
 }
@@ -124,13 +121,13 @@ li {
 }
 
 button {
-    background-color: rgb(243, 251, 244);
+    background-color: rgb(242, 247, 242);
     font-family: 'Lexend Deca', sans-serif;
     text-decoration: none;
     text-decoration-color:  #8fb68e;
-    width: 150px; 
-    height: 70px;
-    font-size:xx-large;
+    width: 20%; 
+    height: 10%;
+    font-size: 140%;
     margin: 1 auto;
     margin-right: .05%;
     border-radius: 5px;
@@ -151,17 +148,32 @@ nav a {
 }
 
 footer {
-    width: 100vw;
-    height: 8%;
-    /* background-color: #daf0db; */
+    width: 100%;
+    height: 6%;
     position: absolute; 
     bottom: 0; 
-    padding: 1.5%;
+    padding: 1.5%
     
 }
 
 small#copyright {
     font-size: 65%;
+}
+
+@media (orientation: portrait){
+    section {
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 8%;
+    }
+    body {
+        font-size: 200%;
+    }
+    button {
+        font-size: 130%;
+        width: 25%; 
+        height: 6%;
+    }
 }
 
 
