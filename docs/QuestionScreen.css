@@ -1,5 +1,5 @@
 body {
-  background-color: aliceblue;
+  background-color: white;
 }
 
 .panel {
@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: navy;
+  color: darkgreen;
 }
 
 .question {
@@ -44,7 +44,7 @@ button {
   margin-top: 8%;
   font-size: 20px;
   padding: 10px 20px;
-  background-color: #4f98c2;
+  background-color: lightgreen;
   color: white;
   border: none;
   cursor: pointer;
@@ -58,5 +58,5 @@ button:hover {
 
 #point {
   font-size: 30px;
-  color: darkslateblue;
+  color: darkslategreen;
 }
