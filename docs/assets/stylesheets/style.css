@@ -51,7 +51,7 @@ table {
 body {
     /* background-color: #d3ddde;     */
     /* background-image: URL('/Users/erinforrest/Downloads/background.jpg'); */
-    background-image:url('triviabackground.jpg');
+    background-image:url('./images/triviabackground.jpg');
     padding: 0;
     margin: 0;
     font-family: 'Lexend Deca', sans-serif;
