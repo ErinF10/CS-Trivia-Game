@@ -69,10 +69,10 @@ function loadQuestion() {
 
 function checkAns() {
     const selectedAns = document.querySelector('input[name="answer"]:checked');
-    if (!selectedAns) {
-        alert("Please select an answer!");
-        return;
-    }
+    // if (!selectedAns) {
+    //     alert("Please select an answer!");
+    //     return;
+    // }
     if (selectedAns.value === Questions[currQuestion].correct_answer) {
         score++;
         alert("Correct answer!");
