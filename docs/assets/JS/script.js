@@ -167,11 +167,11 @@ function resetGame() {
     currQuestion = 0;
     score = 0;
     scoreDisplay.textContent = '';
-    // btn.style.display = 'block';
+    btn.style.display = 'inline';
     restartBtn.style.display = 'none';
-    lifeline5050Btn.style.display = 'block'; // Show the lifeline button
-    lifelineSkipBtn.style.display = 'block'; // Show the skip button
-    lifelineSwapBtn.style.display = 'block'; // Show the swap button
+    lifeline5050Btn.style.display = 'inline'; // Show the lifeline button
+    lifelineSkipBtn.style.display = 'inline'; // Show the skip button
+    lifelineSwapBtn.style.display = 'inline'; // Show the swap button
     lifeline5050Used = false; // Reset the 50/50 lifeline
     skipUsed = false; // Reset the skip lifeline
     swapUsed = false; // Reset the swap lifeline
