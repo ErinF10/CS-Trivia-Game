@@ -167,7 +167,7 @@ function resetGame() {
     currQuestion = 0;
     score = 0;
     scoreDisplay.textContent = '';
-    btn.style.display = 'block';
+    // btn.style.display = 'block';
     restartBtn.style.display = 'none';
     lifeline5050Btn.style.display = 'block'; // Show the lifeline button
     lifelineSkipBtn.style.display = 'block'; // Show the skip button
