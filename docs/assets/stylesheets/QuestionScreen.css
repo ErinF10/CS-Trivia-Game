@@ -40,8 +40,7 @@ body {
 }
 
 button {
-  margin-right: 75px;
-  margin-top: 8%;
+  margin: 10px;
   font-size: 20px;
   padding: 10px 20px;
   background-color: lightgreen;
@@ -53,10 +52,27 @@ button {
 button:hover {
   color: #4f98c2;
   background-color: white;
-  border: 1 px solid #4f98c2;
+  border: 1px solid #4f98c2;
 }
 
-#point {
+#lifeline-5050 {
+  background-color: #f39c12;
+}
+
+#lifeline-5050:hover {
+  color: #f39c12;
+}
+
+#restart-btn {
+  background-color: #e74c3c;
+}
+
+#restart-btn:hover {
+  color: #e74c3c;
+}
+
+#score {
   font-size: 30px;
   color: darkslategreen;
 }
+
