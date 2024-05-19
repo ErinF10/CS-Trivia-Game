@@ -2,39 +2,33 @@ let Questions = [];
 let currQuestion = 0;
 let score = 0;
 const questionLimit = 15;
+let lifelineUsed = false; // Track if the 50/50 lifeline has been used
+let skipUsed = false; // Track if the skip question lifeline has been used
+let swapUsed = false; // Track if the swap question lifeline has been used
 
 const ques = document.getElementById("q");
 const opt = document.getElementById("op");
 const btn = document.getElementById("btn");
 const scoreDisplay = document.getElementById("score");
+const restartBtn = document.getElementById("restart-btn");
+const lifeline5050Btn = document.getElementById("lifeline-5050");
+const lifelineSkipBtn = document.getElementById("lifeline-skip");
+const lifelineSwapBtn = document.getElementById("lifeline-swap");
 
 async function fetchQuestions() {
     try {
-        // Fetch questions from the API
         const response = await fetch(`https://opentdb.com/api.php?amount=${questionLimit}&category=18`);
-
-        // Check if the response is successful
         if (!response.ok) {
             throw new Error('Failed to fetch questions');
         }
-
-        // Parse the response as JSON
         const data = await response.json();
-
-        // Check if there are questions in the response
         if (!data.results || data.results.length === 0) {
             throw new Error('No questions found');
         }
-
-        // Store the fetched questions in the Questions array
         Questions = data.results;
-
-        // Load the first question after fetching
         loadQuestion();
     } catch (error) {
-        // Handle any errors that occur during fetching
         console.error('Error fetching questions:', error.message);
-        // Display an error message to the user
         ques.innerHTML = `<h5 style='color: red'>${error.message}</h5>`;
     }
 }
@@ -46,33 +40,34 @@ function decodeHtml(html) {
 }
 
 function loadQuestion() {
+    lifelineUsed = false; // Reset lifeline usage for the new question
+    lifeline5050Btn.disabled = false; // Enable the lifeline button
     const currentQuestion = Questions[currQuestion];
     ques.textContent = `Question ${currQuestion + 1}: ${decodeHtml(currentQuestion.question)}`;
     opt.innerHTML = "";
-    const answers = [currentQuestion.correct_answer, ...currentQuestion.incorrect_answers];
-    // Shuffle answers array
+    const answers = [currentQuestion.correct_answer, ...currentQuestion.incorrect_answers].map(decodeHtml);
     answers.sort(() => Math.random() - 0.5);
     answers.forEach(answer => {
         const choice = document.createElement("input");
         choice.type = "radio";
         choice.name = "answer";
-        choice.value = decodeHtml(answer);  // Decode HTML entities
+        choice.value = answer;
         const label = document.createElement("label");
-        label.textContent = decodeHtml(answer);  // Decode HTML entities
-        const optionContainer = document.createElement("div"); // Create a container for each option
-        optionContainer.classList.add("option-container"); // Add class to the container
+        label.textContent = answer;
+        const optionContainer = document.createElement("div");
+        optionContainer.classList.add("option-container");
         optionContainer.appendChild(choice);
         optionContainer.appendChild(label);
-        opt.appendChild(optionContainer); // Append the container to the options container
+        opt.appendChild(optionContainer);
     });
 }
 
 function checkAns() {
     const selectedAns = document.querySelector('input[name="answer"]:checked');
-    // if (!selectedAns) {
-    //     alert("Please select an answer!");
-    //     return;
-    // }
+    if (!selectedAns) {
+        alert("Please select an answer!");
+        return;
+    }
     if (selectedAns.value === Questions[currQuestion].correct_answer) {
         score++;
         alert("Correct answer!");
@@ -87,12 +82,98 @@ function checkAns() {
     }
 }
 
-function displayScore() {
-    scoreDisplay.textContent = `Your score: ${score} out of ${currQuestion}`;
+function use5050() {
+    if (lifelineUsed) {
+        alert("You have already used the 50/50 lifeline for this question!");
+        return;
+    }
+    lifelineUsed = true;
+    lifeline5050Btn.disabled = true; // Disable the lifeline button after use
+    const currentQuestion = Questions[currQuestion];
+    const incorrectAnswers = currentQuestion.incorrect_answers;
+    const options = Array.from(document.querySelectorAll('input[name="answer"]'));
+    let removedCount = 0;
+
+    options.forEach(option => {
+        if (incorrectAnswers.includes(option.value) && removedCount < 2) {
+            option.parentElement.style.display = 'none';
+            removedCount++;
+        }
+    });
 }
 
-// Set the button's event listener
-btn.addEventListener('click', checkAns);
+function useSkip() {
+    if (skipUsed) {
+        alert("You have already used the skip question lifeline!");
+        return;
+    }
+    skipUsed = true;
+    currQuestion++;
+    if (currQuestion < Questions.length && currQuestion < questionLimit) {
+        loadQuestion();
+    } else {
+        displayScore();
+    }
+}
 
-// Fetch questions when the page loads
+function useSwap() {
+    if (swapUsed) {
+        alert("You have already used the swap question lifeline!");
+        return;
+    }
+    swapUsed = true;
+    Questions.splice(currQuestion, 1); // Remove the current question
+    fetchAdditionalQuestion().then(newQuestion => {
+        Questions.push(newQuestion); // Add the new question
+        loadQuestion(); // Reload the new question
+    });
+}
+
+async function fetchAdditionalQuestion() {
+    try {
+        const response = await fetch(`https://opentdb.com/api.php?amount=1&category=18`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch additional question');
+        }
+        const data = await response.json();
+        if (!data.results || data.results.length === 0) {
+            throw new Error('No additional questions found');
+        }
+        return data.results[0];
+    } catch (error) {
+        console.error('Error fetching additional question:', error.message);
+        ques.innerHTML = `<h5 style='color: red'>${error.message}</h5>`;
+        return null;
+    }
+}
+
+function displayScore() {
+    scoreDisplay.textContent = `Your score: ${score} out of ${currQuestion}`;
+    btn.style.display = 'none';
+    restartBtn.style.display = 'block';
+    lifeline5050Btn.style.display = 'none'; // Hide the lifeline button
+    lifelineSkipBtn.style.display = 'none'; // Hide the skip button
+    lifelineSwapBtn.style.display = 'none'; // Hide the swap button
+}
+
+function resetGame() {
+    currQuestion = 0;
+    score = 0;
+    scoreDisplay.textContent = '';
+    btn.style.display = 'block';
+    restartBtn.style.display = 'none';
+    lifeline5050Btn.style.display = 'block'; // Show the lifeline button
+    lifelineSkipBtn.style.display = 'block'; // Show the skip button
+    lifelineSwapBtn.style.display = 'block'; // Show the swap button
+    skipUsed = false; // Reset the skip lifeline
+    swapUsed = false; // Reset the swap lifeline
+    fetchQuestions();
+}
+
+btn.addEventListener('click', checkAns);
+restartBtn.addEventListener('click', resetGame);
+lifeline5050Btn.addEventListener('click', use5050);
+lifelineSkipBtn.addEventListener('click', useSkip);
+lifelineSwapBtn.addEventListener('click', useSwap);
+
 fetchQuestions();
