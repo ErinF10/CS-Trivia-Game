@@ -49,11 +49,17 @@ table {
 }
 
 body {
-    background-image:url('../images/background.jpg');
+    /* background-color: #d3ddde;     */
+    /* background-image: URL('/Users/erinforrest/Downloads/background.jpg'); */
+    background-image:url('triviabackground.jpg');
     padding: 0;
     margin: 0;
     font-family: 'Lexend Deca', sans-serif;
     font-size: 130%;
+    /* width: 10000px;  */
+    /* margin-top: 1cm;
+    margin-left: 1cm; */
+    /* margin: 1cm; */
     color: #494949;
     line-height: 130%;
 }
@@ -67,6 +73,8 @@ hr {
 
 header {
     width: 100%;
+    /* background-color: #daf0db; */
+    /* position: absolute; 
     top: 0;  */
     padding: 1.5%;
 }
@@ -79,6 +87,9 @@ section {
     margin-left: 15%;
     margin-right: 15%;
     line-height: 150%;
+    /* overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: scroll; */
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
@@ -88,6 +99,7 @@ section {
 small#welcome {
     font-size: 120%;
     text-align: left;
+    /* color: red; */
 }
 
 h1 {
@@ -138,6 +150,7 @@ nav a {
 footer {
     width: 100%;
     height: 6%;
+    /* background-color: #37c73ef2; */
     position: absolute; 
     bottom: 0; 
     padding: 1.5%
@@ -146,6 +159,83 @@ footer {
 
 small#copyright {
     font-size: 65%;
+    /* padding-bottom: 1.5%; */
+}
+
+#help_page {
+    font: 50%;
+    margin: 2%;
+}
+
+.panel {
+    /* margin-top: 8%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* color: darkgreen; */
+    padding: 5%;
+    margin-left: 7%;
+    margin-right: 7%;
+    border-radius: 8px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
+    background-color: white;
+}
+
+
+.question {
+    text-align: center;
+    font-size: 130%;
+    width: 90%;
+    /* margin-bottom: 5%; */
+}
+
+.option {
+    /* border-width: 5px;
+    border-style: solid; */
+    /* color: black; */
+    width: 70%;
+    font-size: 100%;
+    /* display: flex; 
+    flex-direction: column;
+    align-items: center;  */
+    margin: 5%; /* Adjusted margin */
+    margin-left: 60%;
+}
+
+.option label {
+    margin-left: 3%; 
+}
+
+.option-container {
+    display: flex;
+    align-items: center;
+}
+
+/* .option input[type="radio"] {
+    margin-right: 105%; 
+} */
+
+/* button {
+    margin-right: 75px;
+    margin-top: 8%;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: lightgreen;
+    color: white;
+    border: none;
+    cursor: pointer;
+} */
+
+button:hover {
+    color: #4f98c2;
+    background-color: white;
+    border: 1 px solid #4f98c2;
+}
+
+#point {
+    font-size: 30px;
+    color: darkslategreen;
 }
 
 @media (orientation: portrait){
@@ -162,6 +252,7 @@ small#copyright {
         width: 25%; 
         height: 6%;
     }
+
 }
 
 
