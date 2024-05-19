@@ -15,7 +15,6 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -45,20 +44,15 @@ table {
 }
 
 #content-wrap {
-    padding-bottom: 20%; 
+    padding-bottom: 10%; 
 }
 
 body {
-    /* background-color: #d3ddde;     */
     background-image:url('../images/background.jpg');
     padding: 0;
     margin: 0;
     font-family: 'Lexend Deca', sans-serif;
     font-size: 130%;
-    /* width: 10000px;  */
-    /* margin-top: 1cm;
-    margin-left: 1cm; */
-    /* margin: 1cm; */
     color: #494949;
     line-height: 130%;
 }
@@ -72,9 +66,6 @@ hr {
 
 header {
     width: 100%;
-    /* background-color: #daf0db; */
-    /* position: absolute; 
-    top: 0;  */
     padding: 1.5%;
 }
 
@@ -86,19 +77,16 @@ section {
     margin-left: 15%;
     margin-right: 15%;
     line-height: 150%;
-    /* overflow: scroll;
-    overflow-x: scroll;
-    overflow-y: scroll; */
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
     background-color: white;
+
 }
 
 small#welcome {
     font-size: 120%;
     text-align: left;
-    /* color: red; */
 }
 
 h1 {
@@ -135,17 +123,11 @@ button {
     border-color:  #8fb68e;
     margin-left: .5%;
 }
-button.help_page {
-    width: 15%; 
-    height: 10%;
-    padding: .5%;
-    display: flex;
-    justify-content: center;
-    margin-left: 40%;
-   
-}
-    
 
+button:hover {
+    color: #4f98c2;
+    background-color: white;
+}
 
 a {
     text-decoration: none;
@@ -157,97 +139,21 @@ nav a {
     text-decoration: underline;
 }
 
-footer {
+/* footer {
+    border-width: 1.3px;
+    border-style: solid;
     width: 100%;
-    height: 6%;
-    /* background-color: #37c73ef2; */
+    height: 60%;
+    background-color: #37c73ef2;
     position: absolute; 
     bottom: 0; 
     padding: 1.5%
     
-}
-
+} */
+/* 
 small#copyright {
     font-size: 65%;
-    /* padding-bottom: 1.5%; */
-}
-
-.help_page {
-    font: 50%;
-    margin: 2%;
-    text-align: left;
-}
-
-.panel {
-    /* margin-top: 8%; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* color: darkgreen; */
-    padding: 5%;
-    margin-left: 7%;
-    margin-right: 7%;
-    border-radius: 8px;
-    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
-    background-color: white;
-}
-
-
-.question {
-    text-align: center;
-    font-size: 130%;
-    width: 90%;
-    /* margin-bottom: 5%; */
-}
-
-.option {
-   
-    width: 70%;
-    font-size: 100%;
-    margin: 5%;  
-    /* margin-left: 60%;  */
-    text-align: center;
-
-    /* display: block;
-    margin: auto; */
-}
-
-.option label {
-
-    margin-left: 3%; 
-}
-
-.option-container {
-    text-align: center;
-
-}
-
-/* .option input[type="radio"] {
-    margin-right: 105%; 
 } */
-
-/* button {
-    margin-right: 75px;
-    margin-top: 8%;
-    font-size: 20px;
-    padding: 10px 20px;
-    background-color: lightgreen;
-    color: white;
-    border: none;
-    cursor: pointer;
-} */
-
-button:hover {
-    color: #4f98c2;
-    background-color: white;
-    border: 1 px solid #4f98c2;
-}
-
-#point {
-    font-size: 30px;
-    color: darkslategreen;
-}
 
 @media (orientation: portrait){
     section {
@@ -261,34 +167,11 @@ button:hover {
     header {
         font-size: 100%;
     }
-    .help_page {
-        font-size: 50%;
-        line-height: 130%;
-    }
     button {
         font-size: 130%;
         width: 25%; 
         height: 6%;
     }
-    button.help_page {
-        font-size: 110%;
-        width: 25%; 
-        height: 10%;
-    }
-    .question {
-        line-height: 130%;
-        font-size: 60%;
-    }
-    .option {
-        font-size: 50%;
-        line-height: 130%;
-    }
-    #btn {
-        font-size: 40%;
-    }
-
-
-
 }
 
 
