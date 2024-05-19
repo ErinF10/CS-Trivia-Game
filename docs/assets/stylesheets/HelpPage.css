@@ -1,0 +1,155 @@
+/* Reset!!
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100%;
+}
+
+#content-wrap {
+    padding-bottom: 10%; 
+}
+
+body {
+    background-image:url('../images/background.jpg');
+    padding: 0;
+    margin: 0;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 130%;
+    color: #494949;
+    line-height: 130%;
+}
+
+hr {
+    height:1px;
+    border-width:0;
+    background-color:#bbbbbb;
+}
+
+
+header {
+    width: 100%;
+    padding: 1.5%;
+}
+
+section {
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    padding: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    line-height: 150%;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
+    background-color: white;
+}
+
+button {
+    background-color: rgb(242, 247, 242);
+    font-family: 'Lexend Deca', sans-serif;
+    text-decoration: none;
+    text-decoration-color:  #8fb68e;
+    width: 15%; 
+    height: 10%;
+    padding: .5%;
+    font-size: 140%;
+    display: flex;
+    justify-content: center;
+    margin-left: 40%;
+    border-radius: 5px;
+    border-width: 1.3px;
+    border-style:solid;
+    border-color:  #8fb68e;
+}
+
+
+button:hover {
+    color: #4f98c2;
+    background-color: white;
+    border: 1 px solid #4f98c2;
+}
+
+a {
+    text-decoration: none;
+    color: #494949;
+} 
+
+nav a {
+    font-size: 80%;
+    text-decoration: underline;
+}
+
+/* footer {
+    border-width: 1.3px;
+    border-style:solid;
+    width: 100%;
+    height: 10%;
+    position: absolute; 
+    bottom: 0; 
+    padding: 1.5%
+    
+} */
+/* 
+small#copyright {
+    font-size: 65%;
+} */
+
+@media (orientation: portrait){
+    section {
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 8%;
+    }
+    body {
+        font-size: 200%;
+    }
+    header {
+        font-size: 100%;
+    }
+    button {
+        font-size: 110%;
+        width: 25%; 
+        height: 10%;
+    }
+}
+
+
