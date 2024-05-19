@@ -2,7 +2,7 @@ let Questions = [];
 let currQuestion = 0;
 let score = 0;
 const questionLimit = 15;
-let lifelineUsed = false; // Track if the 50/50 lifeline has been used
+let lifeline5050Used = false; // Track if the 50/50 lifeline has been used
 let skipUsed = false; // Track if the skip question lifeline has been used
 let swapUsed = false; // Track if the swap question lifeline has been used
 
@@ -40,8 +40,6 @@ function decodeHtml(html) {
 }
 
 function loadQuestion() {
-    lifelineUsed = false; // Reset lifeline usage for the new question
-    lifeline5050Btn.disabled = false; // Enable the lifeline button
     const currentQuestion = Questions[currQuestion];
     ques.textContent = `Question ${currQuestion + 1}: ${decodeHtml(currentQuestion.question)}`;
     opt.innerHTML = "";
@@ -60,6 +58,11 @@ function loadQuestion() {
         optionContainer.appendChild(label);
         opt.appendChild(optionContainer);
     });
+
+    // Update lifeline buttons' states
+    lifeline5050Btn.disabled = lifeline5050Used;
+    lifelineSkipBtn.disabled = skipUsed;
+    lifelineSwapBtn.disabled = swapUsed;
 }
 
 function checkAns() {
@@ -83,14 +86,14 @@ function checkAns() {
 }
 
 function use5050() {
-    if (lifelineUsed) {
-        alert("You have already used the 50/50 lifeline for this question!");
+    if (lifeline5050Used) {
+        alert("You have already used the 50/50 lifeline!");
         return;
     }
-    lifelineUsed = true;
+    lifeline5050Used = true;
     lifeline5050Btn.disabled = true; // Disable the lifeline button after use
     const currentQuestion = Questions[currQuestion];
-    const incorrectAnswers = currentQuestion.incorrect_answers;
+    const incorrectAnswers = currentQuestion.incorrect_answers.map(decodeHtml);
     const options = Array.from(document.querySelectorAll('input[name="answer"]'));
     let removedCount = 0;
 
@@ -108,6 +111,7 @@ function useSkip() {
         return;
     }
     skipUsed = true;
+    lifelineSkipBtn.disabled = true; // Disable the lifeline button after use
     currQuestion++;
     if (currQuestion < Questions.length && currQuestion < questionLimit) {
         loadQuestion();
@@ -122,10 +126,13 @@ function useSwap() {
         return;
     }
     swapUsed = true;
+    lifelineSwapBtn.disabled = true; // Disable the lifeline button after use
     Questions.splice(currQuestion, 1); // Remove the current question
     fetchAdditionalQuestion().then(newQuestion => {
-        Questions.push(newQuestion); // Add the new question
-        loadQuestion(); // Reload the new question
+        if (newQuestion) {
+            Questions.push(newQuestion); // Add the new question
+            loadQuestion(); // Reload the new question
+        }
     });
 }
 
@@ -165,6 +172,7 @@ function resetGame() {
     lifeline5050Btn.style.display = 'block'; // Show the lifeline button
     lifelineSkipBtn.style.display = 'block'; // Show the skip button
     lifelineSwapBtn.style.display = 'block'; // Show the swap button
+    lifeline5050Used = false; // Reset the 50/50 lifeline
     skipUsed = false; // Reset the skip lifeline
     swapUsed = false; // Reset the swap lifeline
     fetchQuestions();
