@@ -9,19 +9,29 @@
 </head>
 
 <body>
-  <div class="panel">
-    <h1>Who Wants to be a Millionaire</h1>
-    <div class="question" id="q"></div>
-    <div class="option" id="op"></div>
-    <button onclick="checkAns()" id="btn">SUBMIT</button>
-    <button id="lifeline-5050">50/50</button>
-    <button id="lifeline-skip">Skip Question</button>
-    <button id="lifeline-swap">Swap Question</button>
-    <div id="score"></div>
-    <button id="restart-btn" style="display: none;">Restart</button>
-    <script src="assets/JS/script.js"></script>
-  </div>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="HelpPage.html">Help</a>
+        </nav>
+        <hr>
+    </header>
+        <div class="panel">
+            <!-- <h1>CS Trivia</h1> -->
+            <div class="question" id="q"></div>
+            <div class="option" id="op"></div>
+            <button onclick="checkAns()" id="btn">SUBMIT</button>
+            <div id="score"></div> <!-- Assuming this is where you want to display the score -->
+            <script src="assets/JS/script.js"></script>
+        </div>
+    <footer>
+        <hr>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="HelpPage.html">Help</a>
+        </nav>
+        <small id=copyright>Site Design &copy; CS trivia</small>
+    </footer>
 </body>
 
 </html>
-
