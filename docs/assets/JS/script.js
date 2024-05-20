@@ -157,7 +157,7 @@ async function fetchAdditionalQuestion() {
 function displayScore() {
     scoreDisplay.textContent = `Your score: ${score} out of ${currQuestion}`;
     btn.style.display = 'none';
-    restartBtn.style.display = 'initial';
+    restartBtn.style.display = 'block';
     lifeline5050Btn.style.display = 'none'; // Hide the lifeline button
     lifelineSkipBtn.style.display = 'none'; // Hide the skip button
     lifelineSwapBtn.style.display = 'none'; // Hide the swap button
