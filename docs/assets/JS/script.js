@@ -157,7 +157,7 @@ async function fetchAdditionalQuestion() {
 function displayScore() {
     scoreDisplay.textContent = `Your score: ${score} out of ${currQuestion}`;
     btn.style.display = 'none';
-    restartBtn.style.display = 'default';
+    restartBtn.style.display = 'initial';
     lifeline5050Btn.style.display = 'none'; // Hide the lifeline button
     lifelineSkipBtn.style.display = 'none'; // Hide the skip button
     lifelineSwapBtn.style.display = 'none'; // Hide the swap button
@@ -170,8 +170,8 @@ function resetGame() {
     btn.style.display = 'initial';
     restartBtn.style.display = 'none';
     lifeline5050Btn.style.display = 'initial'; // Show the lifeline button
-    lifelineSkipBtn.style.display = 'compact'; // Show the skip button
-    lifelineSwapBtn.style.display = 'inline-block'; // Show the swap button
+    lifelineSkipBtn.style.display = 'initial'; // Show the skip button
+    lifelineSwapBtn.style.display = 'initial'; // Show the swap button
     lifeline5050Used = false; // Reset the 50/50 lifeline
     skipUsed = false; // Reset the skip lifeline
     swapUsed = false; // Reset the swap lifeline
