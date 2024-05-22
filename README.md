@@ -1,7 +1,7 @@
 # CS Trivia Game
-Repository for CISC 3140 trivia game
+Compete to earn the most points by answering 15 multiple choice questions of increasing difficulty!
 
-Link to the game: [play!](https://erinf10.github.io/CS-Trivia-Game/)
+Link to the game: [play now!](https://erinf10.github.io/CS-Trivia-Game/)
 
 
 
