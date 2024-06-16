@@ -6,6 +6,13 @@
     "type": "public",
     "url": "https://github.com/ErinF10/Who-Wants-To-Be-A-Millionaire-/tree/main/Back-End"
   },
-  "main": "src/index.js",
-  "license": "ISC"
+  "main": "./src/app.js",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.43.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "zod": "^3.23.8"
+  }
 }
