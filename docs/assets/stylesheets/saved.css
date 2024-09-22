@@ -38,10 +38,9 @@ table {
 	border-spacing: 0;
 }
 
-
 #page-container {
     position: relative;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 #content-wrap {
@@ -64,9 +63,30 @@ hr {
     background-color:#bbbbbb;
 }
 
+
 header {
     width: 100%;
     padding: 1.5%;
+}
+
+section {
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    padding: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    line-height: 150%;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
+    background-color: white;
+
+}
+
+small#welcome {
+    font-size: 120%;
+    text-align: left;
 }
 
 h1 {
@@ -77,6 +97,16 @@ h1 {
     margin-bottom: 2%;
 }
 
+ol {
+    list-style:cdecimal;
+    margin-bottom: 5%;
+}
+
+li {
+    text-align: left;
+    padding-left: 2%;
+}
+
 button {
     background-color: rgb(242, 247, 242);
     font-family: 'Lexend Deca', sans-serif;
@@ -85,11 +115,18 @@ button {
     width: 20%; 
     height: 10%;
     font-size: 140%;
+    margin: 1 auto;
     margin-right: .05%;
     border-radius: 5px;
     border-width: 1.3px;
     border-style:solid;
     border-color:  #8fb68e;
+    margin-left: .5%;
+}
+
+button:hover {
+    color: #4f98c2;
+    background-color: white;
 }
 
 a {
@@ -104,10 +141,10 @@ nav a {
 
 /* footer {
     border-width: 1.3px;
-    border-style:solid;
+    border-style: solid;
     width: 100%;
-    height: 10%;
-    color: green;
+    height: 60%;
+    background-color: #37c73ef2;
     position: absolute; 
     bottom: 0; 
     padding: 1.5%
@@ -117,57 +154,6 @@ nav a {
 small#copyright {
     font-size: 65%;
 } */
-
-.panel {
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    padding: 5%;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 10%;
-    line-height: 150%;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
-    background-color: white;
-}
-
-.question {
-    text-align: center;
-    font-size: 130%;
-    width: 90%;
-}
-
-.option {
-    width: 70%;
-    font-size: 100%;
-    margin: 5%;  
-    text-align: center;
-}
-
-.option label {
-    margin-left: 3%; 
-}
-
-.option-container {
-    text-align: center;
-}
-
-/* .option input[type="radio"] {
-    margin-right: 105%; 
-} */
-
-button:hover {
-    color: #4f98c2;
-    background-color: white;
-    border: 1 px solid #4f98c2;
-}
-
-#point {
-    font-size: 30px;
-    color: darkslategreen;
-}
 
 @media (orientation: portrait){
     section {
@@ -181,22 +167,10 @@ button:hover {
     header {
         font-size: 100%;
     }
-    h1 {
-        font-size: 100%;
-    }
     button {
-        font-size: 30%;
+        font-size: 130%;
         width: 25%; 
         height: 6%;
-
-    }
-    .question {
-        line-height: 130%;
-        font-size: 50%;
-    }
-    .option {
-        font-size: 40%;
-        line-height: 130%;
     }
 }
 
