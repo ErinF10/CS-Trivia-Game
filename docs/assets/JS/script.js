@@ -1,7 +1,7 @@
 let Questions = [];
 let currQuestion = 0;
 let score = 0;
-const questionLimit = 15;
+const questionLimit = 10;
 let cheattake2Used = false; // Track if the 50/50 cheat has been used
 let skipUsed = false; // Track if the skip question cheat has been used
 let swapUsed = false; // Track if the swap question cheat has been used

@@ -20,11 +20,18 @@
         <div class="panel">
             <h1>CS Trivia</h1>
             <div class="question" id="q"></div>
-            <div class="option" id="op"></div>
-            <button onclick="checkAns()" id="btn">SUBMIT</button>
-            <button id="cheat-take2">Take 2</button>
-            <button id="cheat-skip">Skip Question</button>
-            <button id="cheat-swap">Swap Question</button>
+
+            <div class="questions-container">
+                <div class="option" id="op"></div>
+            </div>
+
+            <div class="button-container">
+                <button onclick="checkAns()" id="btn">SUBMIT</button>
+                <button id="cheat-take2">Take 2</button>
+                <button id="cheat-skip">Skip Question</button>
+                <button id="cheat-swap">Swap Question</button>
+            </div>
+            
             <div id="score"></div>
             <button id="restart-btn" style="display: none;">Restart</button>
             <script src="assets/JS/script.js"></script>

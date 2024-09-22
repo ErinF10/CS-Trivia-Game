@@ -56,14 +56,18 @@ ol {
 }
 
 button {
+    margin: 10px 0 0 0;
     background-color: rgb(160, 190, 160);
     font-family: 'Lexend Deca', sans-serif;
-    width: 100px;
-    height: 50px;
+    width: 120px;
+    height: 60px;
     border-radius: 5px;
     border: none;
     transition: background-color .3s;
+    font-size: large;
 }
+
+
 
 button.help-page {
     font-size: 20px;;
@@ -77,3 +81,34 @@ a {
     text-decoration: none;
     color: #494949;
 } 
+
+.questions-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.option {
+    margin: 15px 0 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 10px; 
+}
+
+@media (orientation: portrait) {
+    section {
+        margin-left: 5%;
+        margin-right: 5%; 
+    }
+    button {
+        font-size: medium;
+        height: 50px;
+    }
+    h1 {
+        font-size: xx-large;
+    }
+    .option {
+        column-gap: 40px;
+    }
+}
