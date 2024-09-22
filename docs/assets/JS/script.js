@@ -1,19 +1,19 @@
 let Questions = [];
 let currQuestion = 0;
 let score = 0;
-const questionLimit = 15;
-let lifeline5050Used = false; // Track if the 50/50 lifeline has been used
-let skipUsed = false; // Track if the skip question lifeline has been used
-let swapUsed = false; // Track if the swap question lifeline has been used
+const questionLimit = 10;
+let cheattake2Used = false; // Track if the 50/50 cheat has been used
+let skipUsed = false; // Track if the skip question cheat has been used
+let swapUsed = false; // Track if the swap question cheat has been used
 
 const ques = document.getElementById("q");
 const opt = document.getElementById("op");
 const btn = document.getElementById("btn");
 const scoreDisplay = document.getElementById("score");
 const restartBtn = document.getElementById("restart-btn");
-const lifeline5050Btn = document.getElementById("lifeline-5050");
-const lifelineSkipBtn = document.getElementById("lifeline-skip");
-const lifelineSwapBtn = document.getElementById("lifeline-swap");
+const cheattake2Btn = document.getElementById("cheat-take2");
+const cheatSkipBtn = document.getElementById("cheat-skip");
+const cheatSwapBtn = document.getElementById("cheat-swap");
 
 async function fetchQuestions() {
     try {
@@ -59,10 +59,10 @@ function loadQuestion() {
         opt.appendChild(optionContainer);
     });
 
-    // Update lifeline buttons' states
-    lifeline5050Btn.disabled = lifeline5050Used;
-    lifelineSkipBtn.disabled = skipUsed;
-    lifelineSwapBtn.disabled = swapUsed;
+    // Update cheat buttons' states
+    cheattake2Btn.disabled = cheattake2Used;
+    cheatSkipBtn.disabled = skipUsed;
+    cheatSwapBtn.disabled = swapUsed;
 }
 
 function checkAns() {
@@ -85,13 +85,13 @@ function checkAns() {
     }
 }
 
-function use5050() {
-    if (lifeline5050Used) {
-        alert("You have already used the 50/50 lifeline!");
+function usetake2() {
+    if (cheattake2Used) {
+        alert("You have already used the 50/50 cheat!");
         return;
     }
-    lifeline5050Used = true;
-    lifeline5050Btn.disabled = true; // Disable the lifeline button after use
+    cheattake2Used = true;
+    cheattake2Btn.disabled = true; // Disable the cheat button after use
     const currentQuestion = Questions[currQuestion];
     const incorrectAnswers = currentQuestion.incorrect_answers.map(decodeHtml);
     const options = Array.from(document.querySelectorAll('input[name="answer"]'));
@@ -107,11 +107,11 @@ function use5050() {
 
 function useSkip() {
     if (skipUsed) {
-        alert("You have already used the skip question lifeline!");
+        alert("You have already used the skip question cheat!");
         return;
     }
     skipUsed = true;
-    lifelineSkipBtn.disabled = true; // Disable the lifeline button after use
+    cheatSkipBtn.disabled = true; // Disable the cheat button after use
     currQuestion++;
     if (currQuestion < Questions.length && currQuestion < questionLimit) {
         loadQuestion();
@@ -122,11 +122,11 @@ function useSkip() {
 
 function useSwap() {
     if (swapUsed) {
-        alert("You have already used the swap question lifeline!");
+        alert("You have already used the swap question cheat!");
         return;
     }
     swapUsed = true;
-    lifelineSwapBtn.disabled = true; // Disable the lifeline button after use
+    cheatSwapBtn.disabled = true; // Disable the cheat button after use
     Questions.splice(currQuestion, 1); // Remove the current question
     fetchAdditionalQuestion().then(newQuestion => {
         if (newQuestion) {
@@ -158,9 +158,9 @@ function displayScore() {
     scoreDisplay.textContent = `Your score: ${score} out of ${currQuestion}`;
     btn.style.display = 'none';
     restartBtn.style.display = 'block';
-    lifeline5050Btn.style.display = 'none'; // Hide the lifeline button
-    lifelineSkipBtn.style.display = 'none'; // Hide the skip button
-    lifelineSwapBtn.style.display = 'none'; // Hide the swap button
+    cheattake2Btn.style.display = 'none'; // Hide the cheat button
+    cheatSkipBtn.style.display = 'none'; // Hide the skip button
+    cheatSwapBtn.style.display = 'none'; // Hide the swap button
 }
 
 function resetGame() {
@@ -169,19 +169,19 @@ function resetGame() {
     scoreDisplay.textContent = '';
     btn.style.display = 'initial';
     restartBtn.style.display = 'none';
-    lifeline5050Btn.style.display = 'initial'; // Show the lifeline button
-    lifelineSkipBtn.style.display = 'initial'; // Show the skip button
-    lifelineSwapBtn.style.display = 'initial'; // Show the swap button
-    lifeline5050Used = false; // Reset the 50/50 lifeline
-    skipUsed = false; // Reset the skip lifeline
-    swapUsed = false; // Reset the swap lifeline
+    cheattake2Btn.style.display = 'initial'; // Show the cheat button
+    cheatSkipBtn.style.display = 'initial'; // Show the skip button
+    cheatSwapBtn.style.display = 'initial'; // Show the swap button
+    cheattake2Used = false; // Reset the 50/50 cheat
+    skipUsed = false; // Reset the skip cheat
+    swapUsed = false; // Reset the swap cheat
     fetchQuestions();
 }
 
 btn.addEventListener('click', checkAns);
 restartBtn.addEventListener('click', resetGame);
-lifeline5050Btn.addEventListener('click', use5050);
-lifelineSkipBtn.addEventListener('click', useSkip);
-lifelineSwapBtn.addEventListener('click', useSwap);
+cheattake2Btn.addEventListener('click', usetake2);
+cheatSkipBtn.addEventListener('click', useSkip);
+cheatSwapBtn.addEventListener('click', useSwap);
 
 fetchQuestions();
